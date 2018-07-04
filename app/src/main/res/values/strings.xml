@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CoinBook</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="nav_markets">Markets</string>
+    <string name="nav_ticker">Ticker</string>
+    <string name="nav_news">News</string>
+    <string name="nav_portfolio">Portfolio</string>
+    <string name="portfolio_intro">Welcome to your portfolio!</string>
+    <string name="portfolio_intro_explanation">We just need 1 or more transactions in order to begin, use the + button below!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="manual_transaction">Add manual transaction by coin</string>
+    <string name="coin">Coin</string>
+</resources>
