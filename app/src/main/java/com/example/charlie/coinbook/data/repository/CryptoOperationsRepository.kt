@@ -1,7 +1,7 @@
 package com.example.charlie.coinbook.data.repository
 
 import com.example.charlie.coinbook.data.Transaction
-import com.example.charlie.coinbook.remote.api.CryptoCompareAPI
+import com.example.charlie.coinbook.data.remote.api.CryptoCompareAPI
 import io.reactivex.Observable
 import io.reactivex.Single
 import javax.inject.Inject

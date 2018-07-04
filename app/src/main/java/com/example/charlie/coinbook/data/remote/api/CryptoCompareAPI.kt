@@ -1,4 +1,4 @@
-package com.example.charlie.coinbook.remote.api
+package com.example.charlie.coinbook.data.remote.api
 
 import io.reactivex.Single
 import retrofit2.http.GET

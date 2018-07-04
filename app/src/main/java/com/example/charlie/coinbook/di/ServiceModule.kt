@@ -2,9 +2,9 @@ package com.example.charlie.coinbook.di
 
 import android.app.Application
 import android.arch.persistence.room.Room
-import com.example.charlie.coinbook.db.CoinDataDatabase
-import com.example.charlie.coinbook.db.TransactionDao
-import com.example.charlie.coinbook.remote.api.CryptoCompareAPI
+import com.example.charlie.coinbook.data.db.CoinDataDatabase
+import com.example.charlie.coinbook.data.db.TransactionDao
+import com.example.charlie.coinbook.data.remote.api.CryptoCompareAPI
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

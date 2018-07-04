@@ -8,7 +8,6 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
-    flavorDimensions "apptype"
     defaultConfig {
         applicationId "com.example.charlie.coinbook"
         minSdkVersion 23
@@ -22,25 +21,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-    productFlavors {
-        mock {
-            dimension "apptype"
-            applicationIdSuffix = ".mock"
-        }
-        prod {
-            dimension "apptype"
-            applicationIdSuffix = ".prod"
-        }
-    }
-
-    android.variantFilter { variant ->
-
-        if(variant.buildType.name.equals('release')
-                && variant.getFlavors().get(0).name.equals('mock')) {
-            variant.setIgnore(true);
-        }
-
     }
 }
 

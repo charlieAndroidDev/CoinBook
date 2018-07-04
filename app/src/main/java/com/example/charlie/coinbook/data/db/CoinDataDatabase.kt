@@ -1,4 +1,4 @@
-package com.example.charlie.coinbook.db
+package com.example.charlie.coinbook.data.db
 
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.RoomDatabase
