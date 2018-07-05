@@ -5,6 +5,7 @@ import com.example.charlie.coinbook.data.Transaction
 import com.example.charlie.coinbook.data.repository.CryptoOperationsRepository
 import com.example.charlie.coinbook.mock
 import com.example.charlie.coinbook.whenever
+import io.reactivex.Maybe
 import io.reactivex.Observable
 import org.junit.Rule
 import org.junit.Test
@@ -19,7 +20,7 @@ class TransactionUseCasesTest {
     fun testTransactionUseCases_getAllTransactions_Completed() {
 
         whenever(cryptoOperationsRepository.getAllTransactions())
-                .thenReturn(Observable.just(emptyList()))
+                .thenReturn(Maybe.just(emptyList()))
 
         transactionUseCases.getAllTransactions()
                 .test()
@@ -32,7 +33,7 @@ class TransactionUseCasesTest {
 
         val response = Throwable("Error!")
         whenever(cryptoOperationsRepository.getAllTransactions())
-                .thenReturn(Observable.error(response))
+                .thenReturn(Maybe.error(response))
 
         transactionUseCases.getAllTransactions()
                 .test()
@@ -45,7 +46,7 @@ class TransactionUseCasesTest {
 
         val response = arrayListOf(Transaction(0L, "", 0, ""))
         whenever(cryptoOperationsRepository.getAllTransactions())
-                .thenReturn(Observable.just(response))
+                .thenReturn(Maybe.just(response))
 
         transactionUseCases.getAllTransactions()
                 .test()

@@ -3,7 +3,7 @@ package com.example.charlie.coinbook.ui
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import com.example.charlie.coinbook.domain.TransactionUseCases
-import com.example.charlie.coinbook.viewmodel.Response
+import com.example.charlie.coinbook.viewmodel.TransactionResponse
 import io.reactivex.Scheduler
 import io.reactivex.disposables.CompositeDisposable
 import timber.log.Timber
@@ -16,7 +16,7 @@ class TransactionViewModel @Inject constructor(private val transactionUseCases: 
 
     private val disposables : CompositeDisposable = CompositeDisposable()
 
-    val response = MutableLiveData<Response>()
+    val response = MutableLiveData<TransactionResponse>()
 
     override fun onCleared() {
         disposables.clear()
@@ -28,11 +28,14 @@ class TransactionViewModel @Inject constructor(private val transactionUseCases: 
                 .subscribeOn(backgroundScheduler)
                 .observeOn(mainScheduler)
                 .doOnSubscribe {
-                    response.value = Response.loading()
+                    response.value = TransactionResponse.loading()
+                }
+                .doOnError { e ->
+                    response.value = TransactionResponse.error(e)
                 }
                 .subscribe { t ->
-                    //Timber.e(t.keys.toString())
-                    response.value = Response.success(t.toString())
+                    Timber.d(t.toString())
+                    response.value = TransactionResponse.success(t)
                 }
         )
 
